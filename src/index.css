@@ -1,0 +1,85 @@
+@import '@fontsource-variable/archivo/standard.css';
+@import 'tailwindcss';
+
+/* Every design value on the site is declared here. Components use these tokens only. */
+@theme {
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale: 14, 16, 18, 24, 36, 48, 72px, each with its own line-height */
+  --text-*: initial;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.5rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 2.25rem;
+  --text-2xl--line-height: 2.5rem;
+  --text-3xl: 3rem;
+  --text-3xl--line-height: 3.5rem;
+  --text-4xl: 4.5rem;
+  --text-4xl--line-height: 4.5rem;
+
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* 8px grid: p-1 is 8px, p-3 is 24px. 0.5 steps (4px) are for optical fixes only */
+  --spacing: 0.5rem;
+
+  --radius-*: initial;
+  --radius-control: 0.5rem;
+  --radius-card: 1rem;
+  --radius-full: 9999px;
+
+  /* One shadow, for a card that has lifted off the page */
+  --shadow-*: initial;
+  --shadow-lift: 0 1.5rem 2.5rem -1.5rem color-mix(in srgb, var(--color-neutral-900) 45%, transparent);
+
+  --color-*: initial;
+
+  /* Primary: sky blue, built around the light blue of the existing site */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #dff2ff;
+  --color-primary-200: #bfe6ff;
+  --color-primary-300: #75cbff;
+  --color-primary-500: #1f9de0;
+  --color-primary-700: #086699;
+  --color-primary-900: #0b3550;
+
+  /* Neutral: slate, taken from the logo's blue-grey */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f6f9fb;
+  --color-neutral-100: #e8eef2;
+  --color-neutral-200: #d3dde3;
+  --color-neutral-400: #8799a3;
+  --color-neutral-600: #4d626e;
+  --color-neutral-800: #2e4b58;
+  --color-neutral-900: #12262f;
+
+  /* Accent: signal orange, for calls to action and the drone's nozzle */
+  --color-accent-400: #ff7a3d;
+  --color-accent-500: #ff5a1f;
+
+  /* Grime: the dusty film of the unwashed-window effect. Not for general use */
+  --color-grime-500: #8c8266;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-100 font-sans text-base text-neutral-900 antialiased;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-700;
+}
+
+::selection {
+  @apply bg-primary-200 text-neutral-900;
+}
