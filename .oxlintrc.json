@@ -13,5 +13,9 @@
       }
     ],
     "react/refs": "off"
-  }
+  },
+  "ignorePatterns": [
+    ".claude",
+    "dist"
+  ]
 }

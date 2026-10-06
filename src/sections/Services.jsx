@@ -6,7 +6,7 @@ import { Reveal } from '../components/Reveal.jsx'
 import { SectionHeading } from '../components/SectionHeading.jsx'
 import { packages, schedules, serviceModel } from '../content.js'
 import { clamp, useScene } from '../story/story.js'
-import { asset, displayType, sectionSpace, shell } from '../ui.js'
+import { asset, displayType, followSpace, labelType, shell } from '../ui.js'
 
 // The drone gives each card an equal share of the scene, starting here
 const FIRST = 0.1
@@ -97,6 +97,7 @@ export function Services() {
             <SectionHeading
               title="Window and façade cleaning, by drone"
               body="For residential and commercial buildings, as a one-time clean or on a maintenance schedule."
+              bodyClass="min-h-7"
             />
             <ul className="mt-8 grid gap-3 md:grid-cols-3">
               {packages.map((item, index) => (
@@ -110,25 +111,25 @@ export function Services() {
           </div>
         </div>
       </section>
-      <div className={`${shell} ${sectionSpace} grid gap-6 lg:grid-cols-2`}>
-        <Reveal>
-          <h3 className="text-xl font-semibold">How often</h3>
-          <p className="mt-1 mb-2 text-neutral-600">
-            We offer {serviceModel.join(' and ').toLowerCase()}. Typical schedules:
-          </p>
-          <DefinitionRows items={schedules} />
-        </Reveal>
-        <Reveal>
-          <h3 className="text-xl font-semibold">What we clean</h3>
-          <p className="mt-1 text-neutral-600">
+      <div className={`${shell} ${followSpace} grid gap-6 lg:grid-cols-12`}>
+        <Reveal className="lg:col-span-7">
+          <h3 className={`text-xl ${labelType}`}>What we clean</h3>
+          <p className="mt-2 max-w-xl text-lg text-pretty">
             All types of windows, including single and double-hung, casement, picture, bay and
             bow, sliding, and specialty shape windows. Our systems switch between window and
             façade cleaning.
           </p>
-          <p className="mt-2 text-neutral-600">
+          <p className="mt-2 max-w-xl text-neutral-600">
             Pricing is based on the number and size of the windows, the level of difficulty
             involved, and the frequency of service.
           </p>
+        </Reveal>
+        <Reveal className="lg:col-span-4 lg:col-start-9">
+          <h3 className={`text-xl ${labelType}`}>How often</h3>
+          <p className="mt-2 mb-2 text-neutral-600">
+            {serviceModel[0]} or {serviceModel[1].toLowerCase()}. Typical schedules:
+          </p>
+          <DefinitionRows items={schedules} />
         </Reveal>
       </div>
     </div>

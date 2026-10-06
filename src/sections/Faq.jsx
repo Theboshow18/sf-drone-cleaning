@@ -62,7 +62,7 @@ export function Faq() {
             }
             transition={{ duration: 0.35 }}
           >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-2 text-lg font-semibold">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-2 font-sans text-lg font-medium decoration-accent-500 decoration-2 underline-offset-4 hover:underline">
               {faq.question}
               <svg
                 viewBox="0 0 16 16"

@@ -22,7 +22,7 @@ function Side({ side }) {
       <div
         className={`absolute inset-y-0 flex w-1/2 flex-col items-center justify-center gap-1 p-2 text-center ${text}`}
       >
-        <p className="text-sm font-semibold text-neutral-900">{title}</p>
+        <p className="font-sans text-sm font-medium text-neutral-900">{title}</p>
         <p className="text-sm text-neutral-600">{note}</p>
       </div>
     </div>

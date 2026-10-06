@@ -1,13 +1,11 @@
 import { useRef } from 'react'
 import { motion, useTransform } from 'framer-motion'
-import { Card } from '../components/Card.jsx'
-import { DefinitionRows } from '../components/DefinitionRows.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { Scaffold } from '../components/Scaffold.jsx'
 import { SectionHeading } from '../components/SectionHeading.jsx'
 import { comparison, reasons, specs } from '../content.js'
 import { clamp, lerp, useScene } from '../story/story.js'
-import { asset, sectionSpace, shell } from '../ui.js'
+import { asset, followSpace, labelType, shell } from '../ui.js'
 
 // The drone crosses the scaffold between these points of the scene
 const ENTER = 0.12
@@ -18,7 +16,7 @@ function Benefit({ reason, index, progress }) {
   const x = useTransform(arrive, (amount) => (1 - amount) * 48)
   return (
     <motion.li className="border-t border-neutral-400 py-2" style={{ x, opacity: arrive }}>
-      <h3 className="text-xl font-semibold">{reason.title}</h3>
+      <h3 className={`text-xl ${labelType}`}>{reason.title}</h3>
       <p className="mt-1 text-neutral-600">{reason.body}</p>
     </motion.li>
   )
@@ -53,7 +51,8 @@ export function WhyDrones() {
           <div className={`${shell} ${scene.pinned ? '' : 'pt-8 md:pt-12'}`}>
             <SectionHeading
               title="Why drones"
-              body="Exterior cleaning today is expensive, time-consuming and disruptive. We replace traditional access methods with drone-based cleaning."
+              body="Scaffolding, swing stages and large crews make exterior cleaning expensive and disruptive. A drone needs none of them."
+              bodyClass="min-h-7"
             />
             <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-center">
               <figure ref={figure} className="relative lg:col-span-4">
@@ -79,26 +78,50 @@ export function WhyDrones() {
           </div>
         </div>
       </section>
-      <div className={`${shell} ${sectionSpace}`}>
-        <div className="grid gap-3 md:grid-cols-2">
-          {[comparison.traditional, comparison.drone].map((column, index) => (
-            <Reveal key={column.title} delay={index * 0.08}>
-              <Card tone={index === 1 ? 'sky' : 'neutral'} className="h-full">
-                <h3 className="text-xl font-semibold">{column.title}</h3>
-                <ul className="mt-2 text-neutral-600">
-                  {column.points.map((point) => (
-                    <li key={point} className="border-t border-neutral-200 py-1">
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal className="mt-8">
-          <h3 className="mb-2 text-xl font-semibold">The numbers</h3>
-          <DefinitionRows items={specs} />
+      <div className={`${shell} ${followSpace} grid gap-6 lg:grid-cols-12`}>
+        <Reveal className="lg:col-span-7">
+          <table className="w-full table-fixed border-collapse text-left">
+            <caption className="sr-only">Traditional methods compared with drone cleaning</caption>
+            <thead className={`text-sm ${labelType}`}>
+              <tr>
+                <th scope="col" className="w-1/5 pb-1">
+                  <span className="sr-only">Aspect</span>
+                </th>
+                <th scope="col" className="px-2 pb-1 text-neutral-600">
+                  Traditional methods
+                </th>
+                <th scope="col" className="rounded-t-card bg-neutral-0 px-2 pt-2 pb-1">
+                  Drone cleaning
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparison.map((row, index) => (
+                <tr key={row.aspect} className="border-t border-neutral-400 align-top">
+                  <th scope="row" className={`py-2 text-sm ${labelType}`}>
+                    {row.aspect}
+                  </th>
+                  <td className="px-2 py-2 text-neutral-600">{row.traditional}</td>
+                  <td
+                    className={`bg-neutral-0 px-2 py-2 ${index === comparison.length - 1 ? 'rounded-b-card' : ''}`}
+                  >
+                    {row.drone}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Reveal>
+        <Reveal className="lg:col-span-4 lg:col-start-9">
+          <h3 className={`mb-2 text-xl ${labelType}`}>On the job</h3>
+          <dl>
+            {specs.map((item) => (
+              <div key={item.term} className="border-t border-neutral-400 py-2">
+                <dt className={`text-sm text-neutral-600 ${labelType}`}>{item.term}</dt>
+                <dd>{item.detail}</dd>
+              </div>
+            ))}
+          </dl>
         </Reveal>
       </div>
     </div>

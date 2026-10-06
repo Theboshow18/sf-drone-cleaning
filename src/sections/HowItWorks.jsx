@@ -3,7 +3,7 @@ import { motion, useMotionValueEvent, useTransform } from 'framer-motion'
 import { SectionHeading } from '../components/SectionHeading.jsx'
 import { steps } from '../content.js'
 import { clamp, lerp, useScene } from '../story/story.js'
-import { asset, displayType, shell } from '../ui.js'
+import { asset, displayType, labelType, shell } from '../ui.js'
 
 // The flight along the path runs between these points of the scene
 const TAKEOFF = 0.1
@@ -49,8 +49,9 @@ function Step({ step, index, lit, markerRef }) {
         <span className="relative">{index + 1}</span>
       </span>
       <motion.div initial={false} animate={{ opacity: lit ? 1 : 0.45 }}>
-        <h3 className="text-xl font-semibold">{step.title}</h3>
-        <p className="mt-1 text-neutral-600">{step.body}</p>
+        <h3 className={`text-xl ${labelType}`}>{step.title}</h3>
+        {/* Two lines are reserved so the markers, and the flight path through them, hold still */}
+        <p className="mt-1 min-h-6 text-neutral-600">{step.body}</p>
       </motion.div>
     </li>
   )

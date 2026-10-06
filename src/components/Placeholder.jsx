@@ -11,7 +11,7 @@ export function Placeholder({ title, note, tone = 'neutral', className = '' }) {
       aria-label={`Placeholder: ${title}`}
       className={`flex flex-col items-center justify-center gap-1 rounded-card border-2 border-dashed p-3 text-center ${tones[tone]} ${className}`}
     >
-      <p className="text-sm font-semibold text-neutral-900">Placeholder: {title}</p>
+      <p className="font-sans text-sm font-medium text-neutral-900">Placeholder: {title}</p>
       {note ? <p className="max-w-xs text-sm text-neutral-600">{note}</p> : null}
     </div>
   )

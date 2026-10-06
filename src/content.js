@@ -50,26 +50,24 @@ export const reasons = [
   },
 ]
 
-export const comparison = {
-  traditional: {
-    title: 'Traditional methods',
-    points: [
-      'Scaffolding, swing stages and large labour crews',
-      'Higher cost',
-      'Slower setup and scheduling delays',
-      'Increased safety risk',
-    ],
+export const comparison = [
+  {
+    aspect: 'Access',
+    traditional: 'Scaffolding, swing stages and large labour crews',
+    drone: 'No scaffolding or lifts required',
   },
-  drone: {
-    title: 'Drone cleaning',
-    points: [
-      'No scaffolding or lifts required',
-      '30–40% lower cleaning costs',
-      'Faster deployment',
-      'Safer operation, scalable across buildings',
-    ],
+  { aspect: 'Cost', traditional: 'Higher cost', drone: '30–40% lower cleaning costs' },
+  {
+    aspect: 'Setup',
+    traditional: 'Slower setup and scheduling delays',
+    drone: 'Faster deployment',
   },
-}
+  {
+    aspect: 'Safety',
+    traditional: 'Increased safety risk',
+    drone: 'Safer operation, scalable across buildings',
+  },
+]
 
 export const specs = [
   { term: 'Cleaning cost', detail: '30–40% lower' },

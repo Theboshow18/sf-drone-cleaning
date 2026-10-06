@@ -35,14 +35,17 @@ function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-neutral-600 transition-colors hover:text-neutral-900"
+              className="font-sans text-neutral-600 decoration-accent-500 decoration-2 underline-offset-8 transition-colors hover:text-neutral-900 hover:underline"
             >
               {link.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href={company.phoneHref} className="hidden font-semibold sm:block">
+          <a
+            href={company.phoneHref}
+            className="hidden font-sans font-medium tabular-nums decoration-accent-500 decoration-2 underline-offset-8 hover:underline sm:block"
+          >
             {company.phoneDisplay}
           </a>
           <Button href="#contact" size="sm">
@@ -54,18 +57,19 @@ function Header() {
   )
 }
 
+// Kept to its original single row and height: the page ends on the drone landing
+// beside the quote button, and a taller footer would push that scene up the screen.
 function Footer() {
+  const footerLink = 'decoration-accent-500 decoration-2 underline-offset-4 hover:underline'
   return (
-    <footer className="border-t border-neutral-400">
-      <div
-        className={`${shell} flex flex-wrap items-center justify-between gap-2 py-4 text-sm text-neutral-600`}
-      >
-        <p>
+    <footer className="border-t border-neutral-900 bg-neutral-900 font-sans text-neutral-0">
+      <div className={`${shell} flex flex-wrap items-center justify-between gap-2 py-4 text-sm`}>
+        <p className="text-neutral-200">
           Copyright © {year} {company.name}. All rights reserved.
         </p>
         <nav className="flex flex-wrap gap-3">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-neutral-900">
+            <a key={link.href} href={link.href} className={footerLink}>
               {link.label}
             </a>
           ))}

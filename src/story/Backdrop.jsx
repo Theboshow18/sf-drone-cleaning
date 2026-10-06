@@ -64,9 +64,9 @@ export function Backdrop() {
         <p
           ref={counter}
           aria-hidden
-          className={`pointer-events-none fixed z-40 text-sm font-semibold text-neutral-600 tabular-nums ${
+          className={`pointer-events-none fixed z-40 font-sans text-sm font-medium text-neutral-600 tabular-nums ${
             mode === 'compact'
-              ? 'right-0 bottom-1 w-7 text-center'
+              ? 'right-0 bottom-1 w-7 rounded-control bg-neutral-0/80 text-center'
               : 'bottom-2 left-2 rounded-control bg-neutral-0/80 px-1 py-0.5'
           }`}
         >

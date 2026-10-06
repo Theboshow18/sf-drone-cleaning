@@ -6,7 +6,7 @@ import { Field } from '../components/Field.jsx'
 import { SectionHeading } from '../components/SectionHeading.jsx'
 import { company } from '../content.js'
 import { clamp, lerp, smooth, useScene } from '../story/story.js'
-import { sectionSpace, shell, textLink } from '../ui.js'
+import { displayType, labelType, sectionSpace, shell, textLink } from '../ui.js'
 
 const quoteFields = [
   { name: 'name', label: 'Name', autoComplete: 'name', required: 'Enter your name so we know who to reply to.' },
@@ -59,7 +59,7 @@ function QuoteForm({ shine }) {
         name="message"
         multiline
         className="sm:col-span-2"
-        hint={`Sending opens a ready-to-send email in your mail app, addressed to ${company.email}.`}
+        hint={`Sending opens an email in your mail app, addressed to ${company.email}.`}
       />
       {/* The drone lands beside this button at the end of the page */}
       <div className="flex min-h-14 items-center sm:col-span-2">
@@ -126,19 +126,22 @@ export function Contact() {
       <div className="lg:col-span-5">
         <SectionHeading
           title="Get a free quote"
-          body="Drop us a line and get your cleaning journey started."
+          body="Tell us about the building. Pricing depends on the number and size of the windows, the difficulty and how often you want them cleaned."
         />
         <dl className="mt-4">
           <div className="border-t border-neutral-400 py-2">
-            <dt className="text-sm text-neutral-600">Phone</dt>
+            <dt className={`text-sm text-neutral-600 ${labelType}`}>Phone</dt>
             <dd>
-              <a href={company.phoneHref} className={textLink}>
+              <a
+                href={company.phoneHref}
+                className={`text-2xl tabular-nums decoration-accent-500 decoration-2 underline-offset-8 hover:underline ${displayType}`}
+              >
                 {company.phoneDisplay}
               </a>
             </dd>
           </div>
           <div className="border-t border-neutral-400 py-2">
-            <dt className="text-sm text-neutral-600">Email</dt>
+            <dt className={`text-sm text-neutral-600 ${labelType}`}>Email</dt>
             <dd>
               <a href={`mailto:${company.email}`} className={`break-all ${textLink}`}>
                 {company.email}
@@ -146,12 +149,12 @@ export function Contact() {
             </dd>
           </div>
           <div className="border-t border-neutral-400 py-2">
-            <dt className="text-sm text-neutral-600">Address</dt>
+            <dt className={`text-sm text-neutral-600 ${labelType}`}>Address</dt>
             <dd>{company.address.join(', ')}</dd>
           </div>
         </dl>
         <p className="mt-2 text-neutral-600">
-          Better yet, see us in person. Call to schedule an appointment at your convenience.
+          You can also see us in person. Call to schedule an appointment.
         </p>
       </div>
       <div className="lg:col-span-7">

@@ -31,7 +31,7 @@ function Side({ side, place }) {
         <div className="absolute inset-0 bg-grime-500/30" style={{ backgroundImage: `url(${asset('grime.svg')})` }} />
       ) : null}
       <div className={`absolute flex flex-col items-center justify-center gap-1 p-2 text-center ${place}`}>
-        <p className="text-sm font-semibold text-neutral-900">{title}</p>
+        <p className="font-sans text-sm font-medium text-neutral-900">{title}</p>
         <p className="text-sm text-neutral-600">{note}</p>
       </div>
     </div>
@@ -102,7 +102,7 @@ export function Results() {
             />
             <p className="mt-3">
               <a href={company.videoUrl} target="_blank" rel="noreferrer" className={textLink}>
-                Watch drone cleaning in action
+                Watch the video demonstration
               </a>
             </p>
           </div>

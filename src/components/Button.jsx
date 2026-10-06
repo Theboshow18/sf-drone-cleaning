@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
 const variants = {
-  primary: 'bg-accent-500 text-neutral-900 hover:bg-accent-400',
+  primary: 'bg-neutral-900 text-neutral-0 hover:bg-neutral-800 hover:shadow-mark',
   secondary:
-    'border border-neutral-400 bg-neutral-0 text-neutral-900 hover:border-neutral-900 hover:bg-neutral-100',
+    'border border-neutral-800 text-neutral-900 hover:bg-neutral-800 hover:text-neutral-0',
 }
 
 const sizes = {
@@ -25,7 +25,7 @@ export function Button({
   return (
     <Component
       {...elementProps}
-      className={`inline-flex shrink-0 cursor-pointer items-center justify-center rounded-control text-center text-base font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex shrink-0 cursor-pointer items-center justify-center rounded-control text-center font-sans text-base font-medium transition-all disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${sizes[size]} ${className}`}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 380, damping: 26 }}
       {...props}

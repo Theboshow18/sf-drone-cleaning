@@ -1,9 +1,13 @@
-@import '@fontsource-variable/archivo/standard.css';
+@import '@fontsource-variable/jost/wght.css';
+@import '@fontsource-variable/source-serif-4/wght.css';
 @import 'tailwindcss';
 
 /* Every design value on the site is declared here. Components use these tokens only. */
 @theme {
-  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  /* Jost echoes the geometric capitals of the logo: headings, buttons, labels, navigation.
+     Source Serif carries the reading text. */
+  --font-sans: 'Jost Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
 
   /* Type scale: 14, 16, 18, 24, 36, 48, 72px, each with its own line-height */
   --text-*: initial;
@@ -24,6 +28,7 @@
 
   --font-weight-*: initial;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
@@ -31,13 +36,16 @@
   --spacing: 0.5rem;
 
   --radius-*: initial;
-  --radius-control: 0.5rem;
-  --radius-card: 1rem;
+  /* Near-square corners, like the panes of a curtain wall */
+  --radius-control: 0.25rem;
+  --radius-card: 0.25rem;
   --radius-full: 9999px;
 
   /* One shadow, for a card that has lifted off the page */
   --shadow-*: initial;
   --shadow-lift: 0 1.5rem 2.5rem -1.5rem color-mix(in srgb, var(--color-neutral-900) 45%, transparent);
+  /* The orange rule under a pressed or hovered action */
+  --shadow-mark: inset 0 -0.25rem 0 var(--color-accent-500);
 
   --color-*: initial;
 
@@ -60,7 +68,8 @@
   --color-neutral-800: #2e4b58;
   --color-neutral-900: #12262f;
 
-  /* Accent: signal orange, for calls to action and the drone's nozzle */
+  /* Accent: signal orange. Reserved for the drone and the work it does: its nozzle,
+     its flight path, the step it has reached, the rule under an action */
   --color-accent-400: #ff7a3d;
   --color-accent-500: #ff5a1f;
 
@@ -70,10 +79,13 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--color-neutral-600) var(--color-neutral-100);
+  caret-color: var(--color-accent-500);
+  accent-color: var(--color-neutral-800);
 }
 
 body {
-  @apply bg-neutral-100 font-sans text-base text-neutral-900 antialiased;
+  @apply bg-neutral-100 font-serif text-base text-neutral-900 antialiased;
 }
 
 :focus-visible {
@@ -81,5 +93,5 @@ body {
 }
 
 ::selection {
-  @apply bg-primary-200 text-neutral-900;
+  @apply bg-neutral-800 text-neutral-0;
 }

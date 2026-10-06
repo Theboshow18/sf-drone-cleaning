@@ -63,7 +63,7 @@ function DirtyPane({ progress }) {
         style={{ x: shineX, opacity: shine }}
       />
       <motion.p
-        className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-control bg-neutral-0 px-2 py-1 text-sm font-semibold whitespace-nowrap text-neutral-900"
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-control bg-neutral-0 px-2 py-1 font-sans text-sm font-medium whitespace-nowrap text-neutral-900"
         style={{ opacity: hint }}
       >
         Scroll to wash the glass
@@ -125,8 +125,9 @@ export function Hero() {
                 Streak-free windows, without ladders or scaffolding
               </h1>
               <p className="mt-3 max-w-xl text-lg text-pretty text-neutral-600">
-                {company.name} is a Toronto-based company that cleans high-rise and commercial
-                buildings with drones. Safer cleaning, more efficient operations and lower costs.
+                {company.name} is a Toronto-based company that washes the windows and façades
+                of high-rise and commercial buildings by drone, with no scaffolding, swing stages
+                or lifts.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Button href="#contact">Get a Free Quote</Button>
